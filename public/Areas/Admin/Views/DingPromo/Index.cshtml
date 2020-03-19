@@ -1,0 +1,76 @@
+﻿@model IEnumerable<TeleYumaServiceMVC.Models.DingPromo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th hidden>
+            @Html.DisplayNameFor(model => model.ProviderCode)
+        </th>
+        <th hidden>
+            @Html.DisplayNameFor(model => model.StartUtc)
+        </th>
+        <th hidden>
+            @Html.DisplayNameFor(model => model.EndUtc)
+        </th>
+        <th>
+           Promoción
+        </th>
+        <th>
+           Precio mínimo
+        </th>
+        <th>
+            Precio máximo
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MontoText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td hidden>
+            @Html.DisplayFor(modelItem => item.ProviderCode)
+        </td>
+        <td hidden>
+            @Html.DisplayFor(modelItem => item.StartUtc)
+        </td>
+        <td hidden>
+            @Html.DisplayFor(modelItem => item.EndUtc)
+        </td>
+        <td>          
+            @Html.TextAreaFor(modelItem => item.Promo, new { cols = 50, @rows = 8, htmlAttributes = new { @class = "form-control" } })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Min)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Max)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MontoText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@
+            <div class="btn btn-success btn-xs"> @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { Style = "color:white" }) </div>
+
+            @*@Html.ActionLink("Details", "Details", new { id=item.Id })*@
+        </td>
+    </tr>
+}
+
+</table>

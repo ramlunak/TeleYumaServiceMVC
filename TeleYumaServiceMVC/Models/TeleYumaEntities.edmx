@@ -1,0 +1,670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="teleyumaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'teleyuma.dbo.Contactos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Contactos">
+          <Key>
+            <PropertyRef Name="IdContacto" />
+          </Key>
+          <Property Name="IdContacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="15" />
+          <Property Name="Pais" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserNauta" Type="nvarchar" MaxLength="100" />
+          <Property Name="Prefijo" Type="nvarchar" MaxLength="5" />
+          <Property Name="IdCuenta" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Credenciales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Proveedor" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="KeyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="KeyValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="KeyGenerate" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DingPromo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProviderCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="StartUtc" Type="nvarchar" MaxLength="50" />
+          <Property Name="EndUtc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Promo" Type="nvarchar(max)" />
+          <Property Name="Min" Type="float" />
+          <Property Name="Max" Type="float" />
+          <Property Name="MontoText" Type="nvarchar" MaxLength="150" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'teleyuma.dbo.fechaFacturacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="fechaFacturacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="[from" Type="nvarchar" MaxLength="50" />
+          <Property Name="to" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'teleyuma.dbo.Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="IdLogin" />
+          </Key>
+          <Property Name="IdLogin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_customer" Type="int" />
+          <Property Name="user" Type="nvarchar" MaxLength="50" />
+          <Property Name="loged" Type="int" />
+        </EntityType>
+        <EntityType Name="Logins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar(max)" />
+          <Property Name="Clave" Type="nvarchar(max)" />
+          <Property Name="Loged" Type="bit" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar(max)" />
+          <Property Name="NombreVendador" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCuenta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Foto" Type="image" />
+        </EntityType>
+        <EntityType Name="Promo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="image" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'teleyuma.dbo.Promocion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Promocion">
+          <Key>
+            <PropertyRef Name="IdPromocion" />
+          </Key>
+          <Property Name="IdPromocion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="int" />
+          <Property Name="Texto" Type="nvarchar(max)" />
+          <Property Name="FechaInicio" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaFin" Type="nvarchar" MaxLength="50" />
+          <Property Name="Noti" Type="nvarchar" MaxLength="100" />
+          <Property Name="IntervaloNoti" Type="int" />
+          <Property Name="Monto" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'teleyuma.dbo.RecargaNauta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RecargaNauta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCuenta" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_id" Type="int" />
+          <Property Name="TipoRecarga" Type="char" MaxLength="1" />
+          <Property Name="CodigoPais" Type="int" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="100" />
+          <Property Name="Monto" Type="int" />
+          <Property Name="Impuesto" Type="float" />
+          <Property Name="Importe" Type="float" />
+          <Property Name="Fecha" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'teleyuma.dbo.RecargaTienda' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RecargaTienda">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCuenta" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoRecarga" Type="char" MaxLength="1" />
+          <Property Name="CodigoPais" Type="int" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="50" />
+          <Property Name="Monto" Type="int" />
+          <Property Name="Impuesto" Type="float" />
+          <Property Name="Importe" Type="float" />
+          <Property Name="Fecha" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'teleyuma.dbo.RecMovilConfig' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RecMovilConfig">
+          <Property Name="Porciento" Type="float" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'teleyuma.dbo.Reservas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Reservas">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPromocion" Type="int" />
+          <Property Name="IdCuenta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Monto" Type="float" />
+          <Property Name="TotalPagar" Type="float" />
+          <Property Name="FechaReserva" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaRecarga" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mensaje" Type="nvarchar" MaxLength="100" />
+          <Property Name="i_account" Type="int" />
+        </EntityType>
+        <EntityType Name="SMS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_account" Type="nvarchar" MaxLength="50" />
+          <Property Name="monto" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="NumeroTelefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreContacto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fecha" Type="nvarchar" MaxLength="15" />
+          <Property Name="Hora" Type="nvarchar" MaxLength="15" />
+          <Property Name="Mensaje" Type="nvarchar(max)" />
+          <Property Name="RemitenteNumero" Type="nvarchar" MaxLength="50" />
+          <Property Name="RemitenteNombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firma" Type="nvarchar" MaxLength="10" />
+          <Property Name="ItemHeight" Type="int" />
+          <Property Name="Destinatario" Type="varchar" MaxLength="50" />
+          <Property Name="IsSend" Type="bit" />
+          <Property Name="IsNew" Type="bit" />
+          <Property Name="Saliente" Type="bit" />
+          <Property Name="Entrante" Type="bit" />
+          <Property Name="Phone1" Type="varchar" MaxLength="50" />
+          <Property Name="Notify" Type="bit" />
+          <Property Name="Idsms" Type="int" />
+        </EntityType>
+        <EntityContainer Name="teleyumaModelStoreContainer">
+          <EntitySet Name="Credenciales" EntityType="Self.Credenciales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DingPromo" EntityType="Self.DingPromo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promo" EntityType="Self.Promo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SMS" EntityType="Self.SMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contactos" EntityType="Self.Contactos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Contactos].[IdContacto] AS [IdContacto], 
+    [Contactos].[Nombre] AS [Nombre], 
+    [Contactos].[Telefono] AS [Telefono], 
+    [Contactos].[Pais] AS [Pais], 
+    [Contactos].[UserNauta] AS [UserNauta], 
+    [Contactos].[Prefijo] AS [Prefijo], 
+    [Contactos].[IdCuenta] AS [IdCuenta]
+    FROM [dbo].[Contactos] AS [Contactos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fechaFacturacion" EntityType="Self.fechaFacturacion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fechaFacturacion].[id] AS [id], 
+    [fechaFacturacion].[[from] AS [[from], 
+    [fechaFacturacion].[to] AS [to]
+    FROM [dbo].[fechaFacturacion] AS [fechaFacturacion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Login].[IdLogin] AS [IdLogin], 
+    [Login].[i_customer] AS [i_customer], 
+    [Login].[user] AS [user], 
+    [Login].[loged] AS [loged]
+    FROM [dbo].[Login] AS [Login]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Promocion" EntityType="Self.Promocion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Promocion].[IdPromocion] AS [IdPromocion], 
+    [Promocion].[Estado] AS [Estado], 
+    [Promocion].[Texto] AS [Texto], 
+    [Promocion].[FechaInicio] AS [FechaInicio], 
+    [Promocion].[FechaFin] AS [FechaFin], 
+    [Promocion].[Noti] AS [Noti], 
+    [Promocion].[IntervaloNoti] AS [IntervaloNoti], 
+    [Promocion].[Monto] AS [Monto]
+    FROM [dbo].[Promocion] AS [Promocion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RecargaNauta" EntityType="Self.RecargaNauta" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RecargaNauta].[id] AS [id], 
+    [RecargaNauta].[IdCuenta] AS [IdCuenta], 
+    [RecargaNauta].[product_id] AS [product_id], 
+    [RecargaNauta].[TipoRecarga] AS [TipoRecarga], 
+    [RecargaNauta].[CodigoPais] AS [CodigoPais], 
+    [RecargaNauta].[Numero] AS [Numero], 
+    [RecargaNauta].[Monto] AS [Monto], 
+    [RecargaNauta].[Impuesto] AS [Impuesto], 
+    [RecargaNauta].[Importe] AS [Importe], 
+    [RecargaNauta].[Fecha] AS [Fecha], 
+    [RecargaNauta].[Estado] AS [Estado]
+    FROM [dbo].[RecargaNauta] AS [RecargaNauta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RecargaTienda" EntityType="Self.RecargaTienda" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RecargaTienda].[id] AS [id], 
+    [RecargaTienda].[IdCuenta] AS [IdCuenta], 
+    [RecargaTienda].[TipoRecarga] AS [TipoRecarga], 
+    [RecargaTienda].[CodigoPais] AS [CodigoPais], 
+    [RecargaTienda].[Numero] AS [Numero], 
+    [RecargaTienda].[Monto] AS [Monto], 
+    [RecargaTienda].[Impuesto] AS [Impuesto], 
+    [RecargaTienda].[Importe] AS [Importe], 
+    [RecargaTienda].[Fecha] AS [Fecha], 
+    [RecargaTienda].[Estado] AS [Estado]
+    FROM [dbo].[RecargaTienda] AS [RecargaTienda]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Reservas" EntityType="Self.Reservas" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Reservas].[IdReserva] AS [IdReserva], 
+    [Reservas].[IdPromocion] AS [IdPromocion], 
+    [Reservas].[IdCuenta] AS [IdCuenta], 
+    [Reservas].[Telefono] AS [Telefono], 
+    [Reservas].[Monto] AS [Monto], 
+    [Reservas].[TotalPagar] AS [TotalPagar], 
+    [Reservas].[FechaReserva] AS [FechaReserva], 
+    [Reservas].[FechaRecarga] AS [FechaRecarga], 
+    [Reservas].[Estado] AS [Estado], 
+    [Reservas].[Mensaje] AS [Mensaje], 
+    [Reservas].[i_account] AS [i_account]
+    FROM [dbo].[Reservas] AS [Reservas]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="teleyumaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Credenciales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Proveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KeyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KeyValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KeyGenerate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DingPromo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProviderCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="StartUtc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EndUtc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Promo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Min" Type="Double" />
+          <Property Name="Max" Type="Double" />
+          <Property Name="MontoText" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Logins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Clave" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Loged" Type="Boolean" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NombreVendador" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Promo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SMS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="monto" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumeroTelefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Hora" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RemitenteNumero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RemitenteNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Firma" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ItemHeight" Type="Int32" />
+          <Property Name="Destinatario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSend" Type="Boolean" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="Saliente" Type="Boolean" />
+          <Property Name="Entrante" Type="Boolean" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notify" Type="Boolean" />
+          <Property Name="Idsms" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Contactos">
+          <Key>
+            <PropertyRef Name="IdContacto" />
+          </Key>
+          <Property Name="IdContacto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Pais" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserNauta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Prefijo" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="IdCuenta" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="IdLogin" />
+          </Key>
+          <Property Name="IdLogin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="i_customer" Type="Int32" />
+          <Property Name="user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loged" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Promocion">
+          <Key>
+            <PropertyRef Name="IdPromocion" />
+          </Key>
+          <Property Name="IdPromocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="Int32" />
+          <Property Name="Texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInicio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaFin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Noti" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IntervaloNoti" Type="Int32" />
+          <Property Name="Monto" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RecargaNauta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="TipoRecarga" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CodigoPais" Type="Int32" />
+          <Property Name="Numero" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Monto" Type="Int32" />
+          <Property Name="Impuesto" Type="Double" />
+          <Property Name="Importe" Type="Double" />
+          <Property Name="Fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RecargaTienda">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoRecarga" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CodigoPais" Type="Int32" />
+          <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Monto" Type="Int32" />
+          <Property Name="Impuesto" Type="Double" />
+          <Property Name="Importe" Type="Double" />
+          <Property Name="Fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Reservas">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPromocion" Type="Int32" />
+          <Property Name="IdCuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Monto" Type="Double" />
+          <Property Name="TotalPagar" Type="Double" />
+          <Property Name="FechaReserva" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRecarga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mensaje" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="i_account" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="teleyumaEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Credenciales" EntityType="Self.Credenciales" />
+          <EntitySet Name="DingPromo" EntityType="Self.DingPromo" />
+          <EntitySet Name="Logins" EntityType="Self.Logins" />
+          <EntitySet Name="Perfil" EntityType="Self.Perfil" />
+          <EntitySet Name="Promo" EntityType="Self.Promo" />
+          <EntitySet Name="SMS" EntityType="Self.SMS" />
+          <EntitySet Name="Contactos" EntityType="Self.Contactos" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="Promocion" EntityType="Self.Promocion" />
+          <EntitySet Name="RecargaNauta" EntityType="Self.RecargaNauta" />
+          <EntitySet Name="RecargaTienda" EntityType="Self.RecargaTienda" />
+          <EntitySet Name="Reservas" EntityType="Self.Reservas" />
+          <EntitySet Name="fechaFacturacion" EntityType="teleyumaModel.fechaFacturacion" />
+        </EntityContainer>
+        <EntityType Name="fechaFacturacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="from" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="to" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="teleyumaModelStoreContainer" CdmEntityContainer="teleyumaEntities1">
+          <EntitySetMapping Name="Credenciales">
+            <EntityTypeMapping TypeName="teleyumaModel.Credenciales">
+              <MappingFragment StoreEntitySet="Credenciales">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="KeyName" ColumnName="KeyName" />
+                <ScalarProperty Name="KeyValue" ColumnName="KeyValue" />
+                <ScalarProperty Name="KeyGenerate" ColumnName="KeyGenerate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DingPromo">
+            <EntityTypeMapping TypeName="teleyumaModel.DingPromo">
+              <MappingFragment StoreEntitySet="DingPromo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+                <ScalarProperty Name="StartUtc" ColumnName="StartUtc" />
+                <ScalarProperty Name="EndUtc" ColumnName="EndUtc" />
+                <ScalarProperty Name="Promo" ColumnName="Promo" />
+                <ScalarProperty Name="Min" ColumnName="Min" />
+                <ScalarProperty Name="Max" ColumnName="Max" />
+                <ScalarProperty Name="MontoText" ColumnName="MontoText" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="teleyumaModel.Logins">
+              <MappingFragment StoreEntitySet="Logins">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Loged" ColumnName="Loged" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="NombreVendador" ColumnName="NombreVendador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfil">
+            <EntityTypeMapping TypeName="teleyumaModel.Perfil">
+              <MappingFragment StoreEntitySet="Perfil">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promo">
+            <EntityTypeMapping TypeName="teleyumaModel.Promo">
+              <MappingFragment StoreEntitySet="Promo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMS">
+            <EntityTypeMapping TypeName="teleyumaModel.SMS">
+              <MappingFragment StoreEntitySet="SMS">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="i_account" ColumnName="i_account" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
+                <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="RemitenteNumero" ColumnName="RemitenteNumero" />
+                <ScalarProperty Name="RemitenteNombre" ColumnName="RemitenteNombre" />
+                <ScalarProperty Name="Firma" ColumnName="Firma" />
+                <ScalarProperty Name="ItemHeight" ColumnName="ItemHeight" />
+                <ScalarProperty Name="Destinatario" ColumnName="Destinatario" />
+                <ScalarProperty Name="IsSend" ColumnName="IsSend" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="Saliente" ColumnName="Saliente" />
+                <ScalarProperty Name="Entrante" ColumnName="Entrante" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Notify" ColumnName="Notify" />
+                <ScalarProperty Name="Idsms" ColumnName="Idsms" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contactos">
+            <EntityTypeMapping TypeName="teleyumaModel.Contactos">
+              <MappingFragment StoreEntitySet="Contactos">
+                <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="UserNauta" ColumnName="UserNauta" />
+                <ScalarProperty Name="Prefijo" ColumnName="Prefijo" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="teleyumaModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
+                <ScalarProperty Name="i_customer" ColumnName="i_customer" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="loged" ColumnName="loged" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promocion">
+            <EntityTypeMapping TypeName="teleyumaModel.Promocion">
+              <MappingFragment StoreEntitySet="Promocion">
+                <ScalarProperty Name="IdPromocion" ColumnName="IdPromocion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Texto" ColumnName="Texto" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="Noti" ColumnName="Noti" />
+                <ScalarProperty Name="IntervaloNoti" ColumnName="IntervaloNoti" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecargaNauta">
+            <EntityTypeMapping TypeName="teleyumaModel.RecargaNauta">
+              <MappingFragment StoreEntitySet="RecargaNauta">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="TipoRecarga" ColumnName="TipoRecarga" />
+                <ScalarProperty Name="CodigoPais" ColumnName="CodigoPais" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecargaTienda">
+            <EntityTypeMapping TypeName="teleyumaModel.RecargaTienda">
+              <MappingFragment StoreEntitySet="RecargaTienda">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="TipoRecarga" ColumnName="TipoRecarga" />
+                <ScalarProperty Name="CodigoPais" ColumnName="CodigoPais" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservas">
+            <EntityTypeMapping TypeName="teleyumaModel.Reservas">
+              <MappingFragment StoreEntitySet="Reservas">
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+                <ScalarProperty Name="IdPromocion" ColumnName="IdPromocion" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="TotalPagar" ColumnName="TotalPagar" />
+                <ScalarProperty Name="FechaReserva" ColumnName="FechaReserva" />
+                <ScalarProperty Name="FechaRecarga" ColumnName="FechaRecarga" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="i_account" ColumnName="i_account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fechaFacturacion">
+            <EntityTypeMapping TypeName="teleyumaModel.fechaFacturacion">
+              <MappingFragment StoreEntitySet="fechaFacturacion">
+                <ScalarProperty Name="to" ColumnName="to" />
+                <ScalarProperty Name="from" ColumnName="[from" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

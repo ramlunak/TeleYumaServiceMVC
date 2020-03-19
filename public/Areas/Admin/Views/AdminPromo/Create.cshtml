@@ -1,0 +1,36 @@
+﻿@model TeleYumaServiceMVC.Models.Promo
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "AdminPromo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <table class="table" align="left" style="max-width:500px" cellspacing="0">
+
+        <tr>
+            <td>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i id="prefijo"></i>
+                    </div>
+                    <input type="file" name="File" id="File" accept="image" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

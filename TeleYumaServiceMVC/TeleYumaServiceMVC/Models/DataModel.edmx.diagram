@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28fbf2803a4048aab6b0941609db1dc7" Name="Diagram1">
+        <EntityTypeShape EntityType="TeleYumaModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.AspNetUsers" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.Contactos" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.Login" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.Logins" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.OtroGastoes" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.Perfil" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.Productoes" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.Promo" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.Promocion" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.RecargaTienda" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.RecMovilConfig" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.Reservas" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.SMS" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.TelintaUsuario" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.TipoGastoes" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeleYumaModel.Ventas" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TeleYumaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="TeleYumaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="TeleYumaModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TeleYumaModel.Credenciales" Width="1.5" PointX="11.375" PointY="12.75" />
+        <EntityTypeShape EntityType="TeleYumaModel.DingPromo" Width="1.5" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TeleYumaModel.Config" Width="1.5" PointX="3.375" PointY="13.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
