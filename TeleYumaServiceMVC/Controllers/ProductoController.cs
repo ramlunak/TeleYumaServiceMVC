@@ -96,6 +96,8 @@ namespace TeleYumaServiceMVC.Controllers
                                 result.CommissionRate = (float)item.CommissionRate;
                                 result.ValidationRegex = Provider.Items.First().ValidationRegex;
                                 result.DisplayText = item.DefaultDisplayText;
+                                if (promociones.Any())
+                                    result.Bono = promociones.First().MontoText;
                                 Listresult.Add(result);
                             }
                         }
@@ -194,6 +196,8 @@ namespace TeleYumaServiceMVC.Controllers
                                 result.CommissionRate = (float)item.CommissionRate;
                                 result.ValidationRegex = Provider.Items.First().ValidationRegex;
                                 result.DisplayText = item.DefaultDisplayText;
+                                if (promociones.Any())
+                                    result.Bono = promociones.First().MontoText;
                                 Listresult.Add(result);
                             }
                         }
