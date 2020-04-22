@@ -102,8 +102,7 @@ namespace TeleYumaServiceMVC.Controllers
                 else
                 if (validateProducto.TipoProducto == "datos600MG")
                 {
-                   
-                 
+                                    
                     var producto = Product.Items.First(x => x.SkuCode == "1HCUCU4205");
                     var proveedor = Provider.Items.First(x =>x.ProviderCode == "1HCU");
 
@@ -116,7 +115,7 @@ namespace TeleYumaServiceMVC.Controllers
                     result.MaxValue = producto.Maximum.SendValue;
                     result.CommissionRate = (float)producto.CommissionRate;
                     result.ValidationRegex = proveedor.ValidationRegex;
-                    result.DisplayText = producto.DefaultDisplayText;
+                    result.DisplayText = $"{" CUC "+ result.MinValue.ToString("F") + " - " + result.MaxValue.ToString("F")}";
                     Listresult.Add(result);
                 }
                 else
@@ -135,7 +134,7 @@ namespace TeleYumaServiceMVC.Controllers
                     result.MaxValue = producto.Maximum.SendValue;
                     result.CommissionRate = (float)producto.CommissionRate;
                     result.ValidationRegex = proveedor.ValidationRegex;
-                    result.DisplayText = producto.DefaultDisplayText;
+                    result.DisplayText = $"{" CUC " + result.MinValue.ToString("F") + " - " + result.MaxValue.ToString("F")}";
                     Listresult.Add(result);
                 }
                 else
@@ -154,7 +153,7 @@ namespace TeleYumaServiceMVC.Controllers
                     result.MaxValue = producto.Maximum.SendValue;
                     result.CommissionRate = (float)producto.CommissionRate;
                     result.ValidationRegex = proveedor.ValidationRegex;
-                    result.DisplayText = producto.DefaultDisplayText;
+                    result.DisplayText = $"{" CUC " + result.MinValue.ToString("F") + " - " + result.MaxValue.ToString("F")}";
                     Listresult.Add(result);
                 }
 
@@ -306,8 +305,6 @@ namespace TeleYumaServiceMVC.Controllers
                 else
                 if (validateProducto.TipoProducto == "datos600MG")
                 {
-
-
                     var producto = Product.Items.First(x => x.SkuCode == "1HCUCU4205");
                     var proveedor = Provider.Items.First(x => x.ProviderCode == "1HCU");
 
@@ -320,7 +317,7 @@ namespace TeleYumaServiceMVC.Controllers
                     result.MaxValue = producto.Maximum.SendValue;
                     result.CommissionRate = (float)producto.CommissionRate;
                     result.ValidationRegex = proveedor.ValidationRegex;
-                    result.DisplayText = producto.DefaultDisplayText;
+                    result.DisplayText = $"{" CUC " + result.MinValue.ToString("F") + " - " + result.MaxValue.ToString("F")}";
                     Listresult.Add(result);
                 }
                 else
@@ -339,7 +336,7 @@ namespace TeleYumaServiceMVC.Controllers
                     result.MaxValue = producto.Maximum.SendValue;
                     result.CommissionRate = (float)producto.CommissionRate;
                     result.ValidationRegex = proveedor.ValidationRegex;
-                    result.DisplayText = producto.DefaultDisplayText;
+                    result.DisplayText = $"{" CUC " + result.MinValue.ToString("F") + " - " + result.MaxValue.ToString("F")}";
                     Listresult.Add(result);
                 }
                 else
@@ -358,7 +355,7 @@ namespace TeleYumaServiceMVC.Controllers
                     result.MaxValue = producto.Maximum.SendValue;
                     result.CommissionRate = (float)producto.CommissionRate;
                     result.ValidationRegex = proveedor.ValidationRegex;
-                    result.DisplayText = producto.DefaultDisplayText;
+                    result.DisplayText = $"{" CUC " + result.MinValue.ToString("F") + " - " + result.MaxValue.ToString("F")}";
                     Listresult.Add(result);
                 }
 

@@ -23,11 +23,7 @@ namespace TeleYumaApp.Class
 
         public static string AsJson(this object o)
         => JsonConvert.SerializeObject(o);
-
-
-     
-
-
+        
         static readonly string PasswordHash = "P@@Sw0rd";
         static readonly string SaltKey = "S@LT&KEY";
         static readonly string VIKey = "@1B2c3D4e5F6g7H8";
